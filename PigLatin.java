@@ -51,9 +51,6 @@ public class PigLatin{
   public static String pigLatinBest(String s){
     s = s.toLowerCase();
     int length = s.length();
-    if(length == 1){
-      return s;
-    }
     if(!Character.isDigit(s.charAt(0)) && !Character.isLetter(s.charAt(0))){
       return s;
     }

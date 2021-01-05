@@ -4,6 +4,8 @@ public class PigLatin{
     System.out.println(PigLatin.pigLatinSimple("mock"));
     System.out.println(PigLatin.pigLatin("the"));
     System.out.println(PigLatin.pigLatin("oink"));
+    System.out.println(PigLatin.pigLatinBest("*emu"));
+    System.out.println(PigLatin.pigLatinBest("fish!"));
   }
   public static String pigLatinSimple(String s){
     int length = s.length();
@@ -29,5 +31,22 @@ public class PigLatin{
       }
     }
     return pigLatinSimple(s);
+    }
+
+  public static String pigLatinBest(String s){
+    String special = "";
+    int length = s.length();
+    for(int i = 0;i < s.length();i++){
+      if(!Character.isDigit(s.charAt(i)) && !Character.isLetter(s.charAt(i))){
+        special += s.charAt(i);
+      }
+    }
+    if(!Character.isDigit(s.charAt(0)) && !Character.isLetter(s.charAt(0))){
+      return s;
+    }
+    else if(Character.isLetter(s.charAt(0))){
+      return pigLatin(s.substring(0, length - 1)) + special;
+    }
+    return pigLatin(s);
     }
   }
